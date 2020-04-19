@@ -15,7 +15,7 @@
     //  ---------------控制ajax工作流
 
     function ajax(url){
-        axios.get(url).then( res =>userGen.next(res.data))   //成功后把数据返回给steps()里的变量
+        axios.get(url).then( res =>userGen.next(res.data))   //成功后把数据返回给steps()里的相应变量
     }
     function* steps(){
         const users = yield ajax('https://api.github.com/users');
