@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //作用 重新定义对象的属性和方法
+    const person = {name:'jelly',age:200};
+    const personProxy = new Proxy(person,{
+        get(target,key){
+            return target[key].toUpperCase()
+        },
+        set(target,key,value)  {      //target代表你的操作对象及person key就是key，value就是value
+            if(typeof target[key] ==='string'){
+                target[key] = value.trim();
+            }
+        }
+    });
+    personProxy.name = '    codecasts     ';
+    console.log(personProxy.name)
+</script>
+</html>
