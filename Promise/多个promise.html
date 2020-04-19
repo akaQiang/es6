@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const userPromise = new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve(['zyq','mx','tzb'])
+        },2000)
+    })
+    const moviePromise = new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve({name:'无心法师',rating:9.2,year:2020})
+        },500)
+    })
+    Promise
+        .all([userPromise,moviePromise])   //由所有的返回promise状态决定
+        .race([userPromise,moviePromise])   //由第一个返回的promise状态决定
+        .then(data => {
+            console.log(data);
+            const [user,movie]=data;
+            console.log(user);
+            console.log(movie)
+        })
+        .catch(err =>{
+            console.error(err)
+        })
+</script>
+</html>

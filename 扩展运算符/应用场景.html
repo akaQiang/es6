@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>shopping</li>
+        <li>sleep</li>
+        <li>study</li>
+    </ul>
+</body>
+<script>
+    //场景1   代替Array.from
+    // const todos = [...document.querySelectorAll('li')];   
+    // console.log(todos);
+    // const names = todos.map(value => value.innerHTML);
+    // console.log(names)
+
+    //场景2
+    // const todos = [
+    //     {id:1,name:'shop',conpleted:true},
+    //     {id:2,name:'study',conpleted:true},
+    //     {id:3,name:'sleep',conpleted:false}
+    // ];
+    // const id=2; //想删除id为2的一项
+    // const todoIndex = todos.findIndex(value => value.id===id);
+    // const newTodos = [...todos.slice(0,todoIndex),...todos.slice(todoIndex+1)];
+    // console.log(newTodos)
+
+    //场景3
+    // const fruit = ['1','2','3'];
+    // const newFruit = ['4','5'];
+    // fruit.push.apply(fruit,newFruit);   //es6用 fruit.push(...newFruit)
+    // console.log(fruit);
+
+    //场景4  把参数扩展到函数参数中
+    const data = [2020,4,13];
+    const d =new Date(...data)
+    console.log(d)
+</script>
+</html>

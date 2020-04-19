@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //resovle 代表成功  reject代表失败
+    const myPro = new Promise((resovle,reject)=>{
+        // resovle('成功');
+        reject('失败')
+    })
+    myPro.then(data=>{
+        console.log(data)
+    })
+    .catch(err=>{
+        console.error(err)
+    })
+</script>
+</html>

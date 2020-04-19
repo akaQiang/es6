@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const person={
+        name:"jelly",
+        age:18,
+        family:{
+            dad:"jd",
+            mom:"jm",
+            son:"js"
+        },
+    }
+
+    // 声明name和age两个变量，在person中找到同名属性
+    const {name,age} = person;
+    console.log(name);
+    console.log(age);
+    // const {dad,mom,son} = person.family;
+    //重命名 防止dad mom son已经被定义
+    const {dad:d,mom:m,son:s,sister='no sister'} = person.family; //如果person.family没有sister或者定义地undefined；才会使用no sister
+    console.log(d+";"+m+";"+s+";"+sister)
+
+
+
+    function repeatText(num=1,string){
+        let str=''
+        for(let i = 0;i<num;i++){
+            str+=string
+        }
+        return str;
+    }
+    console.log(repeatText(3,'猪猪'))
+</script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //Symbol是es6新增的数据类型
+    //symbol解决冲突问题  例如登记班级成绩中有两个相同名字的人
+    const classRoom = {
+        [Symbol('lily')]:{grade:60,sex:'female'},
+        [Symbol('jelly')]:{grade:70,sex:'female'},
+        [Symbol('jelly')]:{grade:90,sex:'female'},
+    }
+    //但是不能用for in来遍历classRoom,会哈也不显示
+    // for(let key in classRoom){
+    //     console.log(key)
+    // }
+    //用Object.getOwnPropertySymbols来获取
+    const msg = Object.getOwnPropertySymbols(classRoom).map(value=>classRoom[value]);  //这里用[value]获取，用.value获取的话相当于classRoom['value']
+    console.log(msg)
+</script>
+</html>

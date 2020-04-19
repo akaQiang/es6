@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const repos =[
+        { name :'grit',owner:'mojombo',description: 'Grit is no longer maintained', id: 1},
+        { name :'jsawesome',owner:'vanpelt',description: 'Grit is no longer maintained', id: 2},
+        { name :'merb-core',owner:'wycats',description: 'Grit is no longer maintained', id: 3},
+    ]
+    const owners =[
+        { name :'mojombo', location: ' San Francisco' ,followers: 1233},
+        { name :'vanpelt', location: ' Bay Minette' ,followers: 1034},
+        { name :'wycats', location: ' Los Angeles, CA' ,followers: 388},
+    ]
+    function getRepoById(id){
+        return new Promise((resolve,reject)=>{
+            const repo = repos.find(element => element.id===id);
+            if(repo){
+                resolve(repo)
+            }else{
+                reject(Error('NO repo found.'))
+            }
+        })
+    }
+    function getOwnerByrepo(repo){
+        return new Promise((resolve,reject)=>{
+            const owner = owners.find(element =>element.name===repo.owner);
+            if(owner){
+                repo.owner=owner;
+                resolve(repo)
+            }else{
+                reject(Error('NO owner found.'))
+            }
+        })
+    }
+    getRepoById(1).then(data => {
+        console.log(data);
+        return getOwnerByrepo(data)
+    }).then(data =>{
+        console.log(data)
+    }).catch(err =>{
+        console.error(err)
+    })
+
+</script>
+</html>

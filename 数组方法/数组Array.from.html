@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>sleep</li>
+        <li>movie</li>
+        <li>sing</li>
+    </ul>
+</body>
+<script>
+    //案例1   
+    const todos = document.querySelectorAll("li");
+    console.log(todos);
+
+    //下面代码会报错  因为todos是类数组  
+    // const name = todo.map(todo =>todo.textContent);
+    // console.log(name)
+
+    //解决方法
+    const todoArr = Array.from(todos);
+    const name = todoArr.map(todo =>todo.textContent);
+    console.log(name);
+    //还可以这么写
+    const names = Array.from(todos,todo =>todo.textContent);
+    console.log(names)
+
+
+
+    //案例2  argument转换成数组
+    function sum(){
+        return Array.from(arguments).reduce((prev,curr) =>prev+curr,0)
+    }
+    console.log(sum(10,20,30))
+
+    //案例3    字符串转换成数组
+    const str='laravist';
+    console.log(Array.from(str))
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //实现简写 释放双手
+    const name = 'jelly';
+    const age = 18;
+    const sex = 'male';
+    const msg = {
+        name,
+        age,
+        sex,
+        getName(){
+            alert(`hello${this.name}`)
+        }
+    };
+    console.log(msg);
+    msg.getName();
+
+    //简写赋值
+    const keys = ['1','2','3'];
+    const values = ['1-1','2-2','2-3'];
+    const lavarist = {
+        [keys.shift()]:values.shift(),
+        [keys.shift()]:values.shift(),
+        [keys.shift()]:values.shift(),
+    }
+    console.log(lavarist)
+</script>
+</html>

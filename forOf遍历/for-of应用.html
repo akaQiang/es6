@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //数组内置entries()接口     
+    const fruits = ["apple","orange","banana"];
+    for(let [index,fruit] of fruits.entries()){
+        console.log(`${fruit} ranks ${index+1} in my favorite fruit`);  
+    }
+
+    //案例二 返回参数的和
+    function sum(){
+        console.log(arguments);
+        let total =0;
+        for(let num of arguments){
+            total+=num;
+        }
+        return total;
+    }
+    console.log(sum(1,2,3,4,5,6,7,8,9))
+
+    //案例3 遍历字符串
+    let name = 'zyqtaiqiangle';
+    for(let char of name){
+        console.log(char)
+    }
+
+    //案例4  遍历dom 例如li
+</script>
+</html>

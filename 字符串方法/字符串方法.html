@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //区分大小写    
+    const id="15252719971112391x";
+    // .startsWith();
+    id.startsWith('15');      // 15开头 返回true
+    id.startsWith('1997',6)   //第六位后面是1997开头  返回true
+
+    // .endsWith();
+    id.endsWith('x')          //以x结尾  返回true 
+    id.endsWith('1997',10)    //第 10位前面是不是1997  返回true
+    // .includes()
+    const fan='i love mx';
+    fan.includes('love')     //包含love true
+    fan.includes('love',2)    //第二位后面包含love true
+
+    // .repeat();      //可以让两个字符串右对齐  让空格重复字符串个数的差个
+    fan.repeat(5);     //重复5次
+</script>
+</html>

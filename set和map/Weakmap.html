@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let jelly = {name:'jelly'}
+    let lily = {name:'lily'}
+    const strong = new Map();
+    const weak = new WeakMap();
+    strong.set(jelly,'我是jelly')
+    weak.set(lily,'我是lily')
+    console.log(strong)
+    console.log(weak)
+    //weakMap没有size属性，没有for of循环，没有clear()方法，key只能为对象
+    //weakMap里的对象如果没有在其他地方被引用的话，就会被垃圾回收机制回收
+</script>
+</html>

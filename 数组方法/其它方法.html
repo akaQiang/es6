@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const fruit = [
+        {name:'apple',num:1},
+        {name:'orange',num:2},
+        {name:'banana',num:3}
+    ]
+
+    // .find()
+
+    const bananas = fruit.find((element,index,array)=>{
+        if(element.name=='banana'){
+            return true;
+        }else{
+            return false;
+        }
+    })
+    // const bananas = fruit.find(fruit =>fruit.name == 'banana')    简写
+    console.log(bananas)
+
+
+    //  .findIndex()
+
+    const bananasIndex = fruit.findIndex(fruit =>{
+        if(fruit.name == 'banana'){
+            return true;
+        }
+        return false;
+    })
+    console.log(bananasIndex)
+
+
+    //  .some()
+
+    const isEnought = fruit.some(fruit => fruit.num>1)
+    console.log(isEnought);   //返回true ,一旦判断成立立马终止  这里判断到orange
+
+
+    //  .every()
+
+    const isAllEnought = fruit.every(fruit => fruit.num>1);
+    console.log(isAllEnought);  //返回false ,因为所有的num>1不成立  ，这里判断到apple
+</script>
+</html>

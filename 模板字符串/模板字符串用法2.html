@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>净化xss攻击</title>
+    <style>
+        button{
+            width: 50px;
+            height: 30px;
+            line-height: 30px;
+            background-color:aquamarine;
+        }
+        .comment-header{
+            border-bottom: #000 1px solid;
+        }
+        .comment-body{
+            color:blueviolet;
+        }
+        .comment{
+            width: 500px;
+            height: 200px;
+            background-color: #ccc;
+        }
+    </style>
+    <script src="https://cdn.bootcss.com/dompurify/1.0.3/purify.js"></script>
+</head>
+<body>
+    <div class="container">
+        <form class="add-comment">
+            <textarea class="comment-text"></textarea>
+        </form>
+        <button class="btn">提交</button>
+
+        <div class="comment"></div>
+    </div>
+</body>
+<script>
+    const btn=document.querySelector(".btn");
+    const textarea=document.querySelector(".comment-text");
+    const commentDiv=document.querySelector(".comment");    
+    const user = "jelly";
+    function sanitize(strings,...values){
+        const dirty=strings.reduce((prev,curr,i)=>`${prev}${curr}${values[i] ||''}`,'');
+        return DOMPurify.sanitize(dirty)     //净化掉onload
+    }
+    btn.addEventListener("click",function(e){
+        const newcomment=textarea.value.trim();
+        if(newcomment){
+            commentDiv.innerHTML=sanitize`
+                <div class="comment-header">${user}</div>
+                <div class="comment-body">${textarea.value}</div>
+            `
+        }
+    },false)
+
+    //输入框输入hello <img src="http://wpa.qq.com/pa?p=2:251122361:51" onload="alert("你被攻击")">  会被攻击
+</script>
+</html>

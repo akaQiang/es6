@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //应用场景1  ------函数参数            nums原型是一个数组
+    function sum(...nums){
+        console.log(nums);
+        return nums.reduce((prev,curr)=>prev+curr,0)
+    }
+    console.log(sum(1,2,3,4));
+
+
+    //应用场景2   ------变量结构
+    const player=['jelly',1,2,3,4,5,6];
+    const [user,...data]=player;
+    console.log(user,data)
+
+    //函数不能用严格模式的情况：
+    //有剩余参数 解构赋值 默认参数
+</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let jelly = {name:'jelly',age:20}
+    let mary = {name:'mary',age:18}
+    const person = new WeakSet([jelly,mary]);
+    console.log(person)
+    
+    //与set不同的是
+    //   1    只能add对象   add({})
+    //   2    没有for of 和forEach遍历
+    //   3    没有clear()
+
+    //防止内存泄露
+    let a ={name:'zyq'};
+    let b ={name:"mx"};
+    const c =new WeakSet([a,b]);
+    console.log(c);
+    b=null;
+    console.log(c)
+
+
+</script>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const person="jelly";
+    const age=5;
+    const text=`${person} is ${age*5} years old`
+
+    // 定义模板
+    const template=`
+        <div class="container">
+            <p>hello</p>
+        </div>
+    `.trim();
+    console.log(template)
+
+    const jelly={
+        name:"jelly",
+        data:"2020-03-20",
+        todos:[
+            {name:"去商店",completed:false},
+            {name:"看电影",completed:true},
+            {name:"睡觉",completed:true},
+        ]
+    }
+    const template1=`
+    <ul>
+        ${jelly.todos.map(todo=>`
+            <li>
+            ${todo.name} ${todo.completed ? "√" : "×"}
+            </li>
+        `).join("")}
+    </ul>
+    `;
+    document.body.innerHTML=template1;
+</script>
+</html>

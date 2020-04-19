@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const jelly={
+        name:"jelly",
+        hobbies:['读书','听歌','睡觉'],
+        printHobbies:function(){
+            this.hobbies.map(function(value){
+                console.log(`${this.name} loves ${value}`)   //这里回调函数的this指向window
+            })
+        }
+    }
+    jelly.printHobbies();
+
+    // 解决方法1
+    const zyq={
+        name:"zyq",
+        hobbies:['读书','听歌','睡觉'],
+        printHobbies:function(){
+            var that=this;
+            this.hobbies.map(function(value){
+                console.log(`${that.name} loves ${value}`)   
+            })
+        }
+    }
+    zyq.printHobbies();
+
+    // 解决方法2  ----箭头函数
+    const tom={
+        name:"tom",
+        hobbies:['读书','听歌','睡觉'],
+        printHobbies:function(){
+            console.log(this)
+            this.hobbies.map((value)=>{
+                console.log(`${this.name} loves ${value}`)    //这里的this继承父级
+            })
+        }
+    }
+    tom.printHobbies();
+</script>
+</html>

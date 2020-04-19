@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 1.  var 声明  function scope
+    var price=200;
+    console.log(price);
+
+    // 2.  let声明    block scope   let 让变量局限于{}中，块级作用域
+    var count=5;
+    if( count<10){
+        var discount1=price*0.6;
+        console.log(`The discount is ${discount1}`)
+    }
+    console.log(discount1)   //120
+    if( count<10){
+        let discount2=price*0.6;
+        console.log(`The discount is ${discount2}`)
+    }
+    // console.log(discount2)   undefined
+
+
+    //var 可以声明相同变量，但是会覆盖   let声明看作用域 下面两个a变量是截然不同的  这就是以防修改别人代码
+    let a=10;
+    let b=20;
+    if(b>15){
+        let a=30;
+        console.log(a);
+    }
+    console.log(a)
+
+
+    // 3. const声明  block scope   让变量局限于{}中，块级作用域
+    const c=1;
+    // c=2;
+    console.log(c);   //  const声明的变量不可以重新赋值 但是对象不同
+
+    const person={
+        name:"jelly",
+        age:18
+    }
+    person.age=5;
+    console.log(person)    //改变了
+
+    const child=Object.freeze(person);   //冻结person
+    person.name="tom";
+    
+</script>
+</html>

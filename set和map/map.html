@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //set可以看成存储数组   map可以看成存储键值对
+    const people = new Map();
+    people.set('jelly',23)
+    people.set('mary',20)
+    people.set('tom',18);
+    console.log(people);
+
+    //获取值  get方法传入键
+    console.log(people.get('jelly'))
+
+    //has() delete() size clear() 和set用法一样
+
+    //遍历1
+    people.forEach( (value,key,map) =>{
+        console.log(value,key,map)
+    })
+
+    //遍历2
+    for(let person of people){
+        console.log(person)  //打印出来person是数组['jelly',23]
+    }
+    for(let [key,value] of people){
+        console.log(key,value)     //打印出每一项
+    }
+
+    //声明
+    const fruit = new Map([['apple',6],['orange',8],['banana',9]]);
+    console.log(fruit)
+</script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+</head>
+<body>
+    
+</body>
+<script>
+    //因为ajax请求无法确定执行顺序，所以另一个ajax请求要放在第一个ajax请求当中，而Promise为了解决回调地狱
+    const usersPromise =axios.get('http://api.github.com/users');
+    //then方法相当于事件监听，点击触发的那个函数  
+    let userName;  
+    usersPromise.then(response =>{
+        console.log(response);
+        userName = response.data[0].login;
+        return axios.get(`http://api.github.com/users/${userName}/repos`)
+    }).then(response =>{
+        console.log(response.data)
+    }).catch(err =>{                        //catch用来监听错误
+        console.log(err)
+    })
+
+</script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <STYLE>
+        html,body{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 40px;
+            text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
+            background-color: yellow
+        }
+        .heading span{
+            display: inline-block;
+            cursor: pointer;
+            transition: transform  0.25s;
+        }
+        .heading span:hover{
+            transform: translateY(-20px) rotate(10deg) scale(2);
+        }
+    </STYLE>
+</head>
+<body>
+    <h2 class="heading">LARAVAST!</h2>
+</body>
+<script>
+    const h2 = document.querySelector('.heading');
+    function wrapWithSpan(word){
+        return [...word].map(value =>`<span>${value}</span>`).join('')
+    }
+    console.log(wrapWithSpan(h2.textContent))
+    h2.innerHTML=wrapWithSpan(h2.textContent)
+</script>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    function multiply(a,b){
+        a=a||5;
+        b=b||3;
+        return a*b;
+    }
+    console.log(multiply(1,2))
+    console.log(multiply())
+
+
+    function multiply1(a=5,b=3){
+        return a*b;
+    }
+    console.log(multiply1())    //15
+    console.log(multiply1(3))  //9
+    console.log(multiply1(undefined,2))  //10
+</script>
+</html>

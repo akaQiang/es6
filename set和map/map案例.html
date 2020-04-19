@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        button{
+            padding: 10px 15px;
+            font-size: 16px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <button>aaa</button>
+    <button>bbb</button>
+    <button>ccc</button>
+    <button>ddd</button>
+    <button>eee</button>
+
+</body>
+<script>
+    //案例1 获取button的点击信息（存储关于对象的信息）
+    const clickCounts = new Map();
+    const buttons = document.querySelectorAll('button')
+    buttons.forEach(button =>{
+        clickCounts.set(button,0)
+        button.addEventListener('click',function(){
+            const val = clickCounts.get(this);
+            clickCounts.set(this,val+1)
+        })
+    })
+</script>
+</html>

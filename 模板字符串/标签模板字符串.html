@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //strings代表模板字符串的常量  ...values代表变量
+    // 如果模板字符串以变量开头结尾，strings就会多两个字符串
+
+    function highlight(strings,...values){   
+        // return "zyq";
+        // debugger;
+        const highlighted=values.map(value =>`<span class="highlight">${value}</span>`);
+        let str='';
+        strings.forEach((string,i) => str+=`${string}${highlighted[i] || ''} `);
+        return str; 
+
+    }
+    const user="jelly";
+    const topic="learn web";
+    const text=highlight`${user} has ${topic} `;//返回zyq  由前面的函数决定返回内容
+</script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    Array.prototype.first=function(){
+        return this[0]
+    }
+    const fruits = ["apple","orange","banana"];
+
+    //第一种遍历      for循环
+
+    //第二种遍历      forEach    缺点是不能break和continue
+
+    // fruits.forEach(fruit =>{
+    //     console.log(fruit)
+    // })
+
+    //第三种遍历    for in 缺点是会遍历可枚举属性
+
+    for(let index in fruits){
+        console.log(fruits[index]);    //会返回原型
+    }
+
+    //第四种遍历  for of
+
+    //  for(let fruit of fruits){
+    //     console.log(fruit);  
+    // }
+
+</script>
+</html>

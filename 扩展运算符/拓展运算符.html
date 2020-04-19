@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const a = [1,2,3];
+    const b = [4,5,6];
+    //中间插入其他数  ...用来拆分数组
+    let members=[...a,7,...b];
+    console.log(members);
+    //防止浅拷贝
+    const newMembers = [...members];
+    // const newMembers = members;    这样会改变原来素组
+    newMembers[0]=10;
+    console.log(newMembers);
+    console.log(members);
+</script>
+</html>

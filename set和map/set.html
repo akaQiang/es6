@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //set的元素是唯一的 但是没有索引
+    const colors = new Set();
+    colors.add('red')
+    colors.add('green')
+    colors.add('black')
+    colors.add('5')    //加入字符串5"
+    colors.add(5)     //加入数字5
+    colors.add('red')        //有red了  这步没用
+    // colors.delete('red')    //用来删除某个元素  返回布尔值
+    // colors.has('5')     //判断是否拥有某个元素
+    // colors.clear()       //移除所有元素
+    console.log(colors)        
+    // console.log(colors.size)  //长度 size不是 length
+
+
+    //遍历1
+    // const iterator = colors.values()   //values遍历
+    // console.log(iterator.next())    //获取遍历的结果
+
+    //遍历2   
+    for(let color of colors){
+        console.log(color)
+    }
+
+    //遍历3
+    colors.forEach((item,key,ownSet)=>{
+        console.log(item,key,ownSet)    //item和key输出值 ownSet输出原set
+    })
+
+    //还可以这样声明set
+    const num = new Set(['1','2','3','3','2','4','1']);
+    //可以这样去重
+    const number = ['1','2','3','3','2','4','1'];
+    const numberSet = new Set(number);
+    console.log(numberSet);
+    //把set转换成真正的数组
+    const realNumber = [...numberSet];
+    console.log(realNumber)
+</script>
+</html>
