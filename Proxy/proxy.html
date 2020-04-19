@@ -12,7 +12,7 @@
 <script>
     //作用 重新定义对象的属性和方法
     const person = {name:'jelly',age:200};
-    const personProxy = new Proxy(person,{
+    const personProxy = new Proxy(person,{    //接受target,handler两个参数
         get(target,key){
             return target[key].toUpperCase()
         },

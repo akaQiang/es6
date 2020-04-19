@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //案例1  去除电话号码空格
+    const phoneHandler =  {
+        set(target,key,value) {
+            target[key] = value.match(/[0-9]/g).join('');
+        },
+        get(target,key) {
+            return target[key].replace(/(\d{3})(\d{4})(\d{4})/,'$1-$2-$3')
+        }// phoneNumber.work获取的就是"150-2856-8983"
+    }
+    const phoneNumber =  new Proxy({},phoneHandler) ;  
+    phoneNumber.work='150 2856 8983';
+    phoneNumber.home='152 495 14152';
+    console.log(phoneNumber)
+
+    //案例2     属性大小写提示
+    const userHandler = {
+        set(target,key,value) {
+            const likeId = Object.keys(target).find(k =>k.toLowerCase() === key.toLowerCase())
+            if(!(key in target)  &&  likeId){
+                throw new Error('注意大小写')
+            }else{
+                target[key] = value
+            }
+        }
+    }
+    const userId = new Proxy({id:2},userHandler);
+    // userId.ID = 5;
+    userId.name = 'jelly';
+    userId.Name = 'lily'
+
+</script>
+</html>
