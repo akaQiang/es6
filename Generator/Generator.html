@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //如何定义(function后面加*号 函数内部写yield ,相当于return,只不过是每次返回不同的yeild)
+
+    function* listColors(){
+        yield 'red';
+        yield 'blue';
+        yield 'green';
+    }
+
+    //如何调用(  next()方法 ,只有调用这个方法才会执行函数里的内容  )
+
+    const colors = listColors();
+    console.log(colors.next())
+
+    //案例1  遍历数组 返回每次遍历的值
+    const arr = [
+        {name:'jelly'},
+        {name:'lily'},
+        {name:'tom'}
+    ];
+
+    function* loop(){
+        for(let arrEvery of arr){
+            yield  arrEvery;
+        }
+    }
+
+    const arrNew = loop();
+    console.log(arrNew.next())
+</script>
+</html>
