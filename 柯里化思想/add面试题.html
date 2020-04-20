@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //实现add(2)(3)(4)
+    let add = (a,b,c) =>a+b+c
+    function currying(fn,args){
+        let len = fn.length;  //形参个数
+        let _this = this;
+        let _args = args || [];
+        return function(){
+            let args = Array.prototype.slice.apply(arguments);
+            args = Array.prototype.concat.call(_args,args);
+            if(args.length<len){
+                return currying.call(_this,fn,args)
+            }else{
+                return fn.apply(this,args)
+            }
+        }
+    }
+    const myAdd = currying(add);
+    console.log(myAdd(2)(3)(4))
+</script>
+</html>

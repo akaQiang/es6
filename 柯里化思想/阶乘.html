@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //柯里化实现
+    function currying(fn,n){  //fn代表需要转化的函数,n代表默认值，1的阶乘
+        return function(m){//m代表几的阶乘
+            console.log(this)
+            return fn.call(this,m,n)
+        }
+    }
+    function tailFactorial(n,total){
+        if(n===1) return total;
+        return tailFactorial(n-1, n*total)
+    }
+    const factorial = currying(tailFactorial,1)
+    factorial(5)
+    console.log(factorial)
+</script>
+</html>
