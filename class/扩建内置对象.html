@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    class movieCollection extends Array{
+        constructor(name,...items){
+            super(...items);
+            this.name = name;
+        }
+
+        //新增
+        add(value){
+            this.push(value);   //因为继承的Array 所以拥有push方法
+        }
+
+        //根据评分排序
+        topRated(limit=10){
+            return this.sort((a,b) => (a.scores>b.scores) ? -1 :1).slice(0,limit)
+        }
+    }
+    const movies = new movieCollection('favorite movies',
+        {name:'a',scores:8.7},
+        {name:'b',scores:9.2},
+        {name:'c',scores:8.3},
+        {name:'d',scores:8.9},
+        {name:'e',scores:9.5}
+    )
+    movies.push( {name:'f',scores:8.0} )
+    console.log(movies)
+    console.table(movies.topRated())
+</script>
+</html>
