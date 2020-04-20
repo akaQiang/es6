@@ -17,9 +17,9 @@
         let _this = this;
         let _args = args || [];
         return function(){
-            let args = Array.prototype.slice.apply(arguments);
-            args = Array.prototype.concat.call(_args,args);
-            if(args.length<len){
+            let args = Array.prototype.slice.apply(arguments);   //过去每次传过来的值
+            args = Array.prototype.concat.call(_args,args);      //把接收到的值放在args变量当中 
+            if(args.length<len){                                //判断传值的个数和add函数的形参个数是否相等，不等继续传参，相等直接调用
                 return currying.call(_this,fn,args)
             }else{
                 return fn.apply(this,args)

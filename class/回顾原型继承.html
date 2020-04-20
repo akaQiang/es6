@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    //es5继承方式
+    // function user(name,email){
+    //     this.name=name;
+    //     this.email=email;
+    // }
+    // user.prototype.sayName = function(){
+    //     console.log(this.name)
+    // }
+    // const zyq = new user('zyq','146@qq.com')
+    // const mx = new user('mx','89@qq.com')
+    // zyq.sayName();
+    // mx.sayName();
+
+    //class的定义
+        //(和函数的定义相像，因为class是特殊的函数    typeof class得到的是function) 
+        //特殊在什么地方？？
+        //函数存在函数提升  和变量提升相同  但是class不允许先调用后声明
+
+    // class user{
+
+    // }
+    const user = class{
+        constructor(name,email){ //constructor就是构造函数
+            this.name=name;
+            this.email=email;
+        }
+        //不用加逗号
+        sayName() {
+            console.log(this.name)
+        }
+        
+        //静态方法  通过static关键字定义（什么是静态方法？？ -----只能在原型对象上调用，不能在实例对象上调用  例如Array.from()）
+        static description(){
+            console.log('只能原型对象调用')
+        }
+
+        //设置属性和获取属性
+        set github(value){
+            this.githubName = value
+        }
+        get github(){
+            return `https://github.com/${this.githubName}`
+        }
+    }
+    const zyq = new user('zyq','146@qq.com');
+    zyq.sayName();
+    // zyq.description()         //会报错  即实例对象不能调用
+    user.description();
+    zyq.github='akaQiang'
+    console.log(zyq.github)
+</script>
+</html>

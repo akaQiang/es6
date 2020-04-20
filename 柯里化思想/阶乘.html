@@ -17,7 +17,7 @@
             return fn.call(this,m,n)
         }
     }
-    function tailFactorial(n,total){
+    function tailFactorial(n,total){  //实现阶乘
         if(n===1) return total;
         return tailFactorial(n-1, n*total)
     }

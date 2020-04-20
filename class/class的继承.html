@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    class animal{
+        constructor(name){
+            this.name = name;
+            this.food = [];
+        }
+        eat(fd){
+            this.food.push(fd)
+        }
+    }
+
+    //通过extends关键字继承  dog继承了animal
+    class dog extends animal{
+        constructor(name,age){
+            super(name);  //这一部相当于es5里的a.call(this)和b.prototype.constructor=b;
+            this.age = age;
+        }
+        bark(){
+            console.log(`wangwangwang`)
+        }
+    }
+
+    const lucky = new dog('lucky',2);
+    console.log(lucky);
+    lucky.bark();
+    lucky.eat('meat');
+    console.log(lucky.food)
+</script>
+</html>
