@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let obj1 = {
+        name:'jelly'
+    }
+    let obj2 = {
+        age:18,
+        sayName(){
+            console.log(super.name)    //super指的是原型对象
+        }
+    }
+    //让obj1作为obj2的原型对象，然后把obj1的name属性给obj2
+    Object.setPrototypeOf(obj2,obj1)    //后面参数是前面参数的原型对象
+    console.log(obj2)
+    // console.log(obj2.__proto__.name)
+    obj2.sayName()
+</script>
+</html>

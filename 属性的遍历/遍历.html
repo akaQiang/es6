@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let obj = {
+        name:'jelly',
+        age:18,
+        sayName(){
+            console.log(this.name)
+        }
+    }
+    //   for in   对象自身的和继承的可枚举属性（不含 Symbol 属性）。
+    console.log(Object.keys(obj))   //查看键        包括对象自身的（不含继承的）所有可枚举属性（不含 Symbol 属性）的键名。
+    console.log(Object.values(obj))    //查看值
+    console.log(Object.getOwnPropertyNames(obj)) //包含对象自身的所有属性（不含 Symbol 属性，但是包括不可枚举属性）的键名。
+</script>
+</html>
