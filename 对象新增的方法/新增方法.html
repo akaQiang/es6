@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //Object.is()    相当于严格等于
+    let foo = {
+        name:'jelly'
+    }
+    console.log(Object.is(NaN, NaN))
+
+    //Object.assign()    用于对象合并（属性相同 后面的会覆盖前面的）
+    const target = { a: 1 };
+    const source1 = { b: 2 };
+    const source2 = { c: 3 };
+    Object.assign(target, source1, source2);  //把后面的合并到前面
+    console.log(target)
+
+    //Object.assign()实现浅拷贝
+    const obj1 = {a: {b: 1}};
+    const obj2 = Object.assign({}, obj1);
+    obj1.a.b = 2;
+    obj2.a.b // 2
+</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function loadImage(url) {
+        return new Promise((resolve, reject) => {
+            const image = new Image();
+            image.onload = function() {
+                resolve(image);
+            }
+            image.onerror = function() {
+                reject(new Error('Could not load image at ' + url));
+            }
+            image.src = url;
+        })
+    }
+    loadImage('./').then(data=>{
+        console.log(data)
+    })
+    //什么是promise 
+    //为了解决异步的回调地狱，出现了异步操作对象promise来使代码简化,这个对象中有三种状态：pending进行中，fulfilled成功，reject失败，这三种状态会产生两种结果一种是成功resolved，一种是失败rejectd，promise不管是成功也还是失败也好都会调用回调函数，成功调用的是resolved，失败调用的是rejected
+</script>
+</html>

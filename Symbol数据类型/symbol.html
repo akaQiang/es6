@@ -10,7 +10,7 @@
     
 </body>
 <script>
-    //Symbol是es6新增的数据类型
+    //Symbol是es6新增的数据类型,不能使用new进行创建   typeof返回值是symbol
     //symbol解决冲突问题  例如登记班级成绩中有两个相同名字的人
     const classRoom = {
         [Symbol('lily')]:{grade:60,sex:'female'},
