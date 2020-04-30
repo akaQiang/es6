@@ -11,7 +11,8 @@
 </body>
 <script>
     //如何定义(function后面加*号 函数内部写yield ,相当于return,只不过是每次返回不同的yeild)
-
+    //为什么不能用new创建generator,因为它返回的不是this对象
+    //如果想用使用generator里的this，解决方法就是使用call进行绑定
     function* listColors(){
         yield 'red';
         yield 'blue';

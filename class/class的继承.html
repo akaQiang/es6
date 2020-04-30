@@ -29,6 +29,9 @@
         bark(){
             console.log(`wangwangwang`)
         }
+        smile(){   //子类使用父类的方法 要通过super调用  使用属性 通过this调用
+            return super.eat(),this.food  
+        }
     }
 
     const lucky = new dog('lucky',2);
